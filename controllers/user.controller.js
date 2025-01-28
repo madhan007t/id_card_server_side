@@ -36,7 +36,6 @@ const userLogin = async (req, res) => {
 const userSingup = async (req, res) => {
   try {
     const { name, email, password, phone_no } = req.body;
-    console.log(name, email);
 
     const result = await UserSchema.findOne({ email });
     if (result) {
@@ -67,7 +66,24 @@ const userSingup = async (req, res) => {
   }
 };
 
+const checklogin = async (req, res) => {
+  try {
+    const { id } = req.userData;
+
+    const result = await UserSchema.findOne({ _id: id }, { password: 0 });
+
+    if (_.isEmpty(result)) {
+      return res.status(200).send({ message: "Invalid Token" });
+    }
+    return res.status(200).send({ message: "Already Login", data: result });
+  } catch (err) {
+    console.log(err);
+    return res.status(500).send({ message: "Server error" });
+  }
+};
+
 module.exports = {
   userLogin,
   userSingup,
+  checklogin,
 };

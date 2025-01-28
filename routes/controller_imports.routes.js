@@ -1,6 +1,7 @@
-const { userLogin, userSingup } = require("../controllers/user.controller");
+const { userLogin, userSingup, checklogin } = require("../controllers/user.controller");
 
 module.exports = {
   userLogin,
   userSingup,
+  checklogin,
 };
