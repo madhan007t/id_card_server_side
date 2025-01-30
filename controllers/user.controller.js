@@ -69,6 +69,7 @@ const userSingup = async (req, res) => {
 const checklogin = async (req, res) => {
   try {
     const { id } = req.userData;
+    console.log(id);
 
     const result = await UserSchema.findOne({ _id: id }, { password: 0 });
 
