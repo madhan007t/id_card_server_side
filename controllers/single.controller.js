@@ -24,6 +24,7 @@ const getsingleid = async (req, res) => {
       },
     ]);
     successResponse(res, "get Success", result);
+    console.log(result);
   } catch (err) {
     console.log(err);
 
