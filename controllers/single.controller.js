@@ -7,7 +7,6 @@ const addSinglid = async (req, res) => {
   try {
     const result = await SingleSchema.create(req.body);
 
-    console.log(result);
     successResponse(res, "add successfully", result);
   } catch (err) {
     console.log(err);
@@ -24,7 +23,6 @@ const getsingleid = async (req, res) => {
       },
     ]);
     successResponse(res, "get Success", result);
-    console.log(result);
   } catch (err) {
     console.log(err);
 
