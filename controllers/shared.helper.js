@@ -5,17 +5,17 @@ const { successResponse } = require("../helper/response.helper");
 require("dotenv").config();
 
 const s3Client = new S3Client({
-  region: process.env.AWS_REGION,
+  region: process.env.MY_AWS_REGION,
   credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    accessKeyId: process.env.MY_AWS_ACCESS_KEY,
+    secretAccessKey: process.env.MY_AWS_ACCESS_KEY_ID,
   },
 });
 
 const UploadImage = async (req, res) => {
   try {
     const params = {
-      Bucket: process.env.AWS_BUCKET,
+      Bucket: process.env.MY_AWS_BUCKET,
       Body: req.file.buffer,
       Key: `${Date.now()}${filepath.extname(req.file.originalname)}`,
       ACL: "public-read",
