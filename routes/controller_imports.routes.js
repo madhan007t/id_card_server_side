@@ -1,4 +1,4 @@
-const { addSinglid, getsingleid } = require("../controllers/single.controller");
+const { addSinglid, getsingleid, deleteid } = require("../controllers/single.controller");
 const { userLogin, userSingup, checklogin } = require("../controllers/user.controller");
 
 module.exports = {
@@ -9,4 +9,5 @@ module.exports = {
   // single
   addSinglid,
   getsingleid,
+  deleteid,
 };

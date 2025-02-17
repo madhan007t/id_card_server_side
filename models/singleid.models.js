@@ -32,6 +32,13 @@ module.exports = model(
         type: String,
         required: true,
       },
+      position: {
+        type: String,
+        required: true,
+      },
+      title: {
+        type: String,
+      },
     },
     {
       colloction: "single",
